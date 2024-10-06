@@ -11,6 +11,12 @@ if ! grep -Fxq "/.idea" .gitignore; then
     echo ".idea folder added to .gitignore"
 fi
 
+# Check if '*.class' is already in .gitignore, if not, add it
+if ! grep -Fxq "*.class" .gitignore; then
+    echo "*.class" >> .gitignore
+    echo "All .class files will be ignored by Git"
+fi
+
 # Add all changes to git, excluding those specified in .gitignore
 git add .
 
