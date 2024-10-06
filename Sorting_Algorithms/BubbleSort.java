@@ -27,4 +27,12 @@ public class BubbleSort {
         return nums;
 
     }
+    public long analyzeTime(){
+        long startTime = System.nanoTime();
+        this.sort();
+        long endTime = System.nanoTime();
+
+        System.out.println("Bubble Sort Algorithm time: "+ (endTime-startTime) + " nanoseconds.");
+        return endTime - startTime;
+    }
 }

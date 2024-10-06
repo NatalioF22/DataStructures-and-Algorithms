@@ -8,5 +8,6 @@ public class App {
         BubbleSort bSort = new BubbleSort(nums);
         int[] sortedArray = bSort.sort();
         System.out.println(Arrays.toString(sortedArray));
+        System.out.println(bSort.analyzeTime());
     }
 }
