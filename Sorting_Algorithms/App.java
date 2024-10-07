@@ -13,10 +13,10 @@ public class App {
         // Use the array from the file for sorting instead of hardcoding it
         int[] numsFromFile = readTextFile();
 
-        int sampleSize = 1000;
+        int sampleSize = 100;
         int[] sampleNums = new int[sampleSize];
         for (int i = 0; i < sampleSize; i++) {
-            sampleNums[i] = (int) (Math.random() * 1000) + 1;
+            sampleNums[i] = (int) (Math.random() * 100) + 1;
         }
 
         if (numsFromFile == null) {
@@ -32,14 +32,23 @@ public class App {
         // Sort using SelectionSort
         SelectionSort sSort = new SelectionSort(sampleNums); // Clone to avoid modifying original
         int[] sortedArray2 = sSort.sort();
+
+        // Sort using SInsertionnSort
+        InsertionSort iSort = new InsertionSort(sampleNums); // Clone to avoid modifying original
+        int[] sortedArray3 = iSort.sort();
        
         System.out.println("BubbleSort Result: " + Arrays.toString(sortedArray));
         System.out.println("SelectionSort Result: " + Arrays.toString(sortedArray2));
-
+        System.out.println("InsertionSort Result: " + Arrays.toString(sortedArray3));
 
          //Time Analysis
         System.out.println("BubbleSort Time: " + bSort.analyzeTime());
         System.out.println("SelectionSort Time: " + sSort.analyzeTime());
+        System.out.println("InsertionSort Time: " + iSort.analyzeTime());
+
+
+
+
     }
 
     // Method to read numbers from a text file and return an int array
