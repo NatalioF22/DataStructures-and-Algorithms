@@ -1,20 +1,78 @@
 package Sorting_Algorithms;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.lang.Math;
 
 public class App {
     public static void main(String[] args) {
-        int[] nums = {100,1,19,2,20,3,5,6,10,8,7,11};
-        BubbleSort bSort = new BubbleSort(nums);
-        BubbleSort sSort = new BubbleSort(nums);
+        // Use the array from the file for sorting instead of hardcoding it
+        int[] numsFromFile = readTextFile();
 
+        int sampleSize = 1000;
+        int[] sampleNums = new int[sampleSize];
+        for (int i = 0; i < sampleSize; i++) {
+            sampleNums[i] = (int) (Math.random() * 1000) + 1;
+        }
+
+        if (numsFromFile == null) {
+            System.out.println("Error reading the file.");
+            return;
+        }
+
+        // Sort using BubbleSort
+        BubbleSort bSort = new BubbleSort(sampleNums);
         int[] sortedArray = bSort.sort();
+        
+
+        // Sort using SelectionSort
+        SelectionSort sSort = new SelectionSort(sampleNums); // Clone to avoid modifying original
         int[] sortedArray2 = sSort.sort();
+       
+        System.out.println("BubbleSort Result: " + Arrays.toString(sortedArray));
+        System.out.println("SelectionSort Result: " + Arrays.toString(sortedArray2));
 
-        System.out.println(Arrays.toString(sortedArray));
-        System.out.println(bSort.analyzeTime());
 
-        System.out.println(Arrays.toString(sortedArray2));
-        System.out.println(sSort.analyzeTime());
+         //Time Analysis
+        System.out.println("BubbleSort Time: " + bSort.analyzeTime());
+        System.out.println("SelectionSort Time: " + sSort.analyzeTime());
+    }
+
+    // Method to read numbers from a text file and return an int array
+    public static int[] readTextFile() {
+        List<Integer> numbersList = new ArrayList<>();
+
+        try {
+            File myObj = new File("Sorting_Algorithms/nums.txt");
+            Scanner myReader = new Scanner(myObj);
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                // Split by space or comma if there are multiple numbers in one line
+                String[] numberStrings = data.split("[ ,]+");
+
+                for (String numStr : numberStrings) {
+                    numbersList.add(Integer.parseInt(numStr));
+                }
+            }
+            myReader.close();
+            
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+            return null;
+        }
+
+        // Convert list to int array
+        int[] numsArray = new int[numbersList.size()];
+        for (int i = 0; i < numbersList.size(); i++) {
+            numsArray[i] = numbersList.get(i);
+        }
+
+        return numsArray;
     }
 }
