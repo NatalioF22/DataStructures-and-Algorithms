@@ -57,21 +57,50 @@ public class Problems {
         return numsArray;
     }
 
-    public void solveSortedStrings(){
-        int arraySize = this.stringsArray.length;
+
+    public String[] solveSortedStrings(){
+        int arraySize = stringsArray.length;
         boolean swapped;
-        for(int i=0; i<arraySize; i++){
+        for(int i=0; i<arraySize-1;i++){
             swapped = false;
-            for(int j=0; j< arraySize-i-1;j++){
-                String word = stringsArray[j];
-                char letter = word.charAt(j);
-                int ascii_value = (int) letter;
-                System.out.println(word);
-                
+            for(int j = 0;j<arraySize-i-1;j++){
+                String word1 = stringsArray[j];
+                String word2 = stringsArray[j+1];
+                String leftWord = compareWords(word1, word2);
+                if(!leftWord.equals(word1)){
+                    String temp = stringsArray[j+1];
+                    stringsArray[j+1] = stringsArray[j];
+                    stringsArray[j] = temp;
+                    swapped = true;
+                }
+            }
+            if(!swapped){
+                break;
             }
         }
-
+        return stringsArray;
     }
-    //3. Sort an array of strings alphabetically in reverse order: ["apple", "banana", "cherry", "date", "elderberry"]
+
+
+    public String compareWords(String word1, String word2) {
+        int minSize = Math.min(word1.length(), word2.length());
+        for (int i = 0; i < minSize; i++) {
+            char c1 = word1.charAt(i);
+            char c2 = word2.charAt(i);
+            if (c1 < c2) {
+                return word1;
+            } else if (c1 > c2) {
+                return word2;
+            }
+            // If characters are equal, continue to the next character
+        }
+        // All compared characters are equal; the shorter word comes first
+        if (word1.length() <= word2.length()) {
+            return word1;
+        } else {
+            return word2;
+        }
+    }
     
 }
+    

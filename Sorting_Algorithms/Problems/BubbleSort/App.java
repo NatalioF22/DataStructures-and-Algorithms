@@ -5,11 +5,11 @@ public class App {
 public static void main(String[] args) {
     int[] unsrotedArray = {5, 2, 8, 12, 1, 6};
     int[] unsortedArray2  = {15, 7, 3, 9, 14, 2};
-    String[] sortedStringArray = {"apple", "banana", "cherry", "date", "elderberry"};
+    String[] unsortedStringArray = {"elderberry", "date", "cherry", "banana", "apple"};
 
     Problems problem1 = new Problems(unsrotedArray);
     Problems problem2 = new Problems(unsortedArray2);
-    Problems problem3 = new Problems(sortedStringArray);
+    Problems problem3 = new Problems(unsortedStringArray);
     
 
     int[] sortedArray = problem1.solveUnsortedArray();
@@ -24,7 +24,12 @@ public static void main(String[] args) {
     }
     System.out.println();
 
-    problem3.solveSortedStrings();
+    String[] sortedStrings = problem3.solveSortedStrings();
+    for(String i : sortedStrings){
+        System.out.print(i+ " ");
+    }
+    System.out.println();
+
 
 }
 }
