@@ -15,13 +15,13 @@ public class InsertionSort {
 
             int currentValue = array[i];
 
-            int position = i - 1;
-            
-            while (position >= 0 && array[position] > currentValue) {
-                array[position + 1] = array[position];
-                position--;
+            int previousIndex = i - 1;
+
+            while (previousIndex >= 0 && array[previousIndex] > currentValue) {
+                array[previousIndex + 1] = array[previousIndex];
+                previousIndex--;
             }
-            array[position + 1] = currentValue;
+            array[previousIndex + 1] = currentValue;
         }
         return array;
     }
