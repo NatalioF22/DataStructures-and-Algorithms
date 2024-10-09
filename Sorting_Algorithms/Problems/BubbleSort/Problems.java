@@ -1,5 +1,5 @@
 package Sorting_Algorithms.Problems.BubbleSort;
-import java.util.Arrays;
+
 
 public class Problems {
     private int[] numsArray;
@@ -101,6 +101,32 @@ public class Problems {
             return word2;
         }
     }
+
+    public String[] sortByWordsLength(){
+        int arraySize = stringsArray.length;
+        boolean swapped;
+        for(int i=0;i<arraySize-1; i++){
+            
+            swapped = false;
+            for(int j=0;j< arraySize -i -1; j++){
+               
+                if(stringsArray[j].length() > stringsArray[j+1].length()){
+                    String temp = stringsArray[j+1];
+                    stringsArray[j+1] = stringsArray[j];
+                    stringsArray[j] = temp;
+                    swapped = true;
+                }
+            }
+            if(!swapped){
+                break;
+            }
+        }
+        return stringsArray;
+    }
+
+   
+
+
     
 }
     

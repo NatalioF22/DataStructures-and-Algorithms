@@ -6,10 +6,12 @@ public static void main(String[] args) {
     int[] unsrotedArray = {5, 2, 8, 12, 1, 6};
     int[] unsortedArray2  = {15, 7, 3, 9, 14, 2};
     String[] unsortedStringArray = {"elderberry", "date", "cherry", "banana", "apple"};
+    String[] unsrotedStringsArrayByLength = {"cat", "elephant", "dog", "rhinoceros", "bird"};
 
     Problems problem1 = new Problems(unsrotedArray);
     Problems problem2 = new Problems(unsortedArray2);
     Problems problem3 = new Problems(unsortedStringArray);
+    Problems problem4 = new Problems(unsrotedStringsArrayByLength);
     
 
     int[] sortedArray = problem1.solveUnsortedArray();
@@ -26,6 +28,14 @@ public static void main(String[] args) {
 
     String[] sortedStrings = problem3.solveSortedStrings();
     for(String i : sortedStrings){
+        System.out.print(i+ " ");
+    }
+    System.out.println();
+
+    //Problem 4
+
+    String[] arraySortedByLength = problem4.sortByWordsLength();
+    for(String i : arraySortedByLength){
         System.out.print(i+ " ");
     }
     System.out.println();
