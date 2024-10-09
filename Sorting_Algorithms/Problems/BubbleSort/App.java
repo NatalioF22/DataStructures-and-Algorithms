@@ -7,11 +7,13 @@ public static void main(String[] args) {
     int[] unsortedArray2  = {15, 7, 3, 9, 14, 2};
     String[] unsortedStringArray = {"elderberry", "date", "cherry", "banana", "apple"};
     String[] unsrotedStringsArrayByLength = {"cat", "elephant", "dog", "rhinoceros", "bird"};
+    int[] unsrotedEvenNumbers = {2,3,1,4,5,8,9,6};
 
     Problems problem1 = new Problems(unsrotedArray);
     Problems problem2 = new Problems(unsortedArray2);
     Problems problem3 = new Problems(unsortedStringArray);
     Problems problem4 = new Problems(unsrotedStringsArrayByLength);
+    Problems problem5 = new Problems(unsrotedEvenNumbers);
     
 
     int[] sortedArray = problem1.solveUnsortedArray();
@@ -39,6 +41,15 @@ public static void main(String[] args) {
         System.out.print(i+ " ");
     }
     System.out.println();
+
+     //Problem 5
+
+     int[] sortedEvenNums = problem5.sortByEveness();
+     for(int i : sortedEvenNums){
+         System.out.print(i+ " ");
+     }
+     System.out.println();
+ 
 
 
 }

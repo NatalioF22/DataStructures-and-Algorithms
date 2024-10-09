@@ -125,7 +125,47 @@ public class Problems {
     }
 
    
-
+    public int[] sortByEveness() {
+        boolean swapped;
+        for (int i = 0; i < numsArray.length - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < numsArray.length - i - 1; j++) {
+                if (isEven(numsArray[j]) && isEven(numsArray[j + 1])) {
+                    // Both numbers are even, sort in ascending order
+                    if (numsArray[j] > numsArray[j + 1]) {
+                        swapNumbers(numsArray,j, j+1);
+                        swapped = true;
+                    }
+                } else if (!isEven(numsArray[j]) && !isEven(numsArray[j + 1])) {
+                    // Both numbers are odd, sort in ascending order
+                    if (numsArray[j] > numsArray[j + 1]) {
+                        swapNumbers(numsArray,j, j+1);
+                        swapped = true;
+                    }
+                } else if (!isEven(numsArray[j]) && isEven(numsArray[j + 1])) {
+                    // numsArray[j] is odd, numsArray[j + 1] is even, swap to move even number left
+                    swapNumbers(numsArray,j, j+1);
+                    swapped = true;
+                }
+                // If numsArray[j] is even and numsArray[j + 1] is odd, do nothing
+            }
+            // If no swaps occurred, the array is sorted
+            if (!swapped) {
+                break;
+            }
+        }
+        return numsArray;
+    }
+    
+    public boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+    public void swapNumbers(int[] nums,int index1, int index2){
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+    
 
     
 }
