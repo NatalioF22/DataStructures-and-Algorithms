@@ -160,11 +160,62 @@ public class Problems {
     public boolean isEven(int number) {
         return number % 2 == 0;
     }
+  
+
+    public String[] sortDates(){
+        int arraySize = stringsArray.length;
+        boolean swapped ;
+        for(int i =0; i< arraySize; i++){
+            swapped = false;
+            
+            for(int j = 0; j< arraySize - i - 1; j++){
+                System.out.println(stringsArray[j]);
+                int current_year = Integer.parseInt(stringsArray[j].substring(0, 4));
+                int next_year = Integer.parseInt(stringsArray[j + 1].substring(0, 4));
+
+                int current_month = Integer.parseInt(stringsArray[j].substring(5, 7));
+                int next_month = Integer.parseInt(stringsArray[j+1].substring(5, 7));
+
+                int current_day = Integer.parseInt(stringsArray[j].substring(8, 10));
+                int next_day = Integer.parseInt(stringsArray[j+1].substring(8, 10));
+
+                System.out.println(current_year);
+
+                if(current_year > next_year){
+                    swapStrings(stringsArray, j,j+1);
+                    swapped = true;
+                    if(current_month> next_month){
+                        swapStrings(stringsArray, j,j+1);
+                        swapped = true;
+                        if(current_day> next_day){
+                            swapStrings(stringsArray, j, j+1);
+                        }
+                    }
+                }
+
+
+            }
+            if(!swapped){
+                break;
+            }
+            }
+            return stringsArray;
+            
+
+    }
+
     public void swapNumbers(int[] nums,int index1, int index2){
         int temp = nums[index1];
         nums[index1] = nums[index2];
         nums[index2] = temp;
     }
+
+    public void swapStrings(String[] strings,int index1, int index2){
+        String temp = strings[index1];
+        strings[index1] = strings[index2];
+        strings[index2] = temp;
+    }
+    
     
 
     
