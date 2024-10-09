@@ -31,7 +31,17 @@ public class Problems {
 
 
 
-    public void sortedArrayInDescendentOrder(){
-        
+    public int[] sortedArrayInDescendentOrder(){
+        int arraySize = nums.length;
+        for(int i = 0;i<arraySize;i++){
+            int currentValue = nums[i];
+            int previousIndex = currentValue-1;
+            while(previousIndex>=0 && nums[previousIndex]< currentValue){
+                nums[previousIndex+1] = nums[previousIndex];
+                previousIndex--;
+            }
+            nums[previousIndex+1] = currentValue;
+        }
+        return nums;
     }   
 }
