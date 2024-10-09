@@ -5,9 +5,14 @@ import java.security.Policy;
 public class Problems {
     private int[] nums;
     private String[] stringsArray;
+    private char[] charArray;
 
     public Problems(int[] nums){
         this.nums = nums;
+    }
+
+    public Problems(char[] chars){
+        this.charArray = chars;
     }
 
     public Problems(String[] strings){
@@ -44,4 +49,25 @@ public class Problems {
         }
         return nums;
     }   
+
+    public char[] sortArrayOfChars(){
+        int arraySize = charArray.length;
+        for(int i =0;i<arraySize;i++){
+            int currentValue = charArray[i];
+            int previousIndex = i-1;
+            while(previousIndex>=0 && charArray[previousIndex]> currentValue){
+                charArray[previousIndex +1] = charArray[previousIndex];
+                previousIndex --;
+            }
+            charArray[previousIndex+1] = (char) currentValue;
+        }
+        return charArray;
+    }
+
+  
+
+
+
+
+
 }
