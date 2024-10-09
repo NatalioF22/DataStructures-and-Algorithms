@@ -179,7 +179,7 @@ public class Problems {
                 int current_day = Integer.parseInt(stringsArray[j].substring(8, 10));
                 int next_day = Integer.parseInt(stringsArray[j+1].substring(8, 10));
 
-                System.out.println(current_year);
+               
 
                 if(current_year > next_year){
                     swapStrings(stringsArray, j,j+1);
