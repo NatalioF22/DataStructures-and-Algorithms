@@ -46,6 +46,33 @@ public class App {
             System.out.print(i + " " );
         }
         System.out.println();
+
+        String[] unsortedIPAddresses = {
+            "192.168.0.1", 
+            "10.0.0.1", 
+            "172.16.0.1", 
+            "192.168.1.1", 
+            "8.8.8.8", 
+            "172.16.254.1", 
+            "10.10.1.1", 
+            "192.168.0.100", 
+            "203.0.113.5", 
+            "198.51.100.42", 
+            "172.31.255.255", 
+            "1.1.1.1", 
+            "203.0.113.50", 
+            "192.0.2.123"
+        };
+
+
+
+       
+        Problems problem6 = new Problems(unsortedIPAddresses);
+        String[] sortedIPAddresses = problem6.sortIpAddresses();
+        for(String i: sortedIPAddresses){
+            System.out.println(i);
+        }
+        System.out.println();
     
     
     }
