@@ -39,6 +39,15 @@ public class App {
         }
         System.out.println();
 
+        int[] unsortedNums3 = {4, -2, 9, 1, -5, 6, 3, -8};
+        Problems problem5 = new Problems(unsortedNums3);
+        int[] sortedAbsNums = problem5.sortArrayByAbsoluteValue();
+        for(int i: sortedAbsNums){
+            System.out.print(i + " " );
+        }
+        System.out.println();
+    
+    
     }
 
    
