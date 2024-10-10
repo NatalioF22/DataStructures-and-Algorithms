@@ -64,8 +64,41 @@ public class Problems {
         return charArray;
     }
 
-  
 
+    public String[] sortWordsByLastChar() {
+   // 4. Sort a list of words by their last letter: ["hello", "world", "algorithm", "computer", "science"]
+        int arraySize = stringsArray.length;
+        for(int i=0;i<arraySize;i++){
+            String currentValue = stringsArray[i];
+            int previousIndex = i-1;
+            while(previousIndex>=0 && compareWords(currentValue, stringsArray[previousIndex]).equals(currentValue)){
+                stringsArray[previousIndex+1] = stringsArray[previousIndex];
+                previousIndex --;
+            }
+            stringsArray[previousIndex+1] = currentValue;
+        }
+        return stringsArray;
+    }
+  
+    public String compareWords(String word1, String word2){
+        int minLength = Math.min(word1.length(), word2.length());
+        int word1Length = word1.length();
+        int word2Length = word2.length();
+        for(int i=0; i < minLength;i++){
+            char letter1 = word1.charAt(word1Length-1);
+            char letter2 = word2.charAt(word2Length-1);
+            
+            if( ((int) letter1) > ((int) letter2)){
+                return word2;
+            }
+            else if(((int) letter1) < ((int) letter2)){
+                return word1;
+            }
+            
+        }
+        return word1;
+        
+    }
 
 
 

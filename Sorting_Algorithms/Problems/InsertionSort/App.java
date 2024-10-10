@@ -30,5 +30,17 @@ public class App {
         }
         System.out.println();
 
+        String[] unsortedWords = {"Zulu","Alicio","Anastacia","hello", "world", "algorithm", "computer", "science"};
+        Problems problem4 = new Problems(unsortedWords);
+        String[] sortedWordsByLastChar = problem4.sortWordsByLastChar();
+
+        for(String i: sortedWordsByLastChar){
+            System.out.print(i+ " ");
+        }
+        System.out.println();
+
     }
+
+   
+    
 }
