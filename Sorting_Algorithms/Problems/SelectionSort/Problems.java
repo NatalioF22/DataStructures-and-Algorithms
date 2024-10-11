@@ -20,14 +20,31 @@ public class Problems {
         int arraySize = numList.length;
         for(int i = 0;i<arraySize-1;i++){
             int minIndex = i;
-            for(int  j =  i+1;j<arraySize;j++){
-                if(numList[minIndex] > numList[j]){
+            for(int j = i+1; j<arraySize;j++){
+                if(numList[minIndex]> numList[j]){
                     minIndex = j;
                 }
-                int temp = numList[minIndex];
-                numList[minIndex] = numList[i];
-                numList[i] = temp;
             }
+            int temp = numList[minIndex];
+            numList[minIndex] = numList[i];
+            numList[i] = temp;
+        }
+        return numList;
+    }
+
+    public int[] unsortIntArray(){
+        int arraySize = numList.length;
+        for(int i = 0;i < arraySize-1;i++){
+            int minIndex = i;
+            for(int j=i+1; j<arraySize;j++){
+                if(numList[minIndex] < numList[j]){
+                    minIndex = j;
+                }
+                
+            }
+            int temp = numList[minIndex];
+            numList[minIndex] = numList[i];
+            numList[i] = temp;
         }
         return numList;
     }
