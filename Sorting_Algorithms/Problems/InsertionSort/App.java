@@ -73,6 +73,15 @@ public class App {
             System.out.println(i);
         }
         System.out.println();
+
+        String[] unsrotedColors = {"FF0000", "00FF00", "0000FF", "FFFFFF", "000000"};
+        Problems problem7 = new Problems(unsrotedColors);
+        String[] sortedColors = problem7.sortRGBColors();
+        for(String i: sortedColors){
+            System.out.print(i+ " ");
+        }
+
+        System.out.println();
     
     
     }
