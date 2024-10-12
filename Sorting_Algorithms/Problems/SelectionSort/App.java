@@ -1,4 +1,5 @@
 package Sorting_Algorithms.Problems.SelectionSort;
+import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) {
@@ -55,6 +56,48 @@ public class App {
         System.out.print(i + " ");
      }
      System.out.println();
+
+     //This is for problem 7
+    
+
+    HashMap<String, Integer> shapeSides = new HashMap<>();
+    shapeSides.put("triangle", 3);
+    shapeSides.put("square", 4);
+    shapeSides.put("pentagon", 5);
+    shapeSides.put("hexagon", 6);
+    shapeSides.put("heptagon", 7);
+    shapeSides.put("octagon", 8);
+    shapeSides.put("nonagon", 9);
+    shapeSides.put("decagon", 10);
+    shapeSides.put("hendecagon", 11);
+    shapeSides.put("dodecagon", 12);
+    shapeSides.put("triskaidecagon", 13);
+    shapeSides.put("tetrakaidecagon", 14);
+    shapeSides.put("circle", 0); 
+
+    HashMap<String, Integer> atomicNumbers = new HashMap<>();
+    atomicNumbers.put("Hydrogen", 1);
+    atomicNumbers.put("Helium", 2);
+    atomicNumbers.put("Lithium", 3);
+    atomicNumbers.put("Beryllium", 4);
+    atomicNumbers.put("Boron", 5);
+    atomicNumbers.put("Carbon", 6);
+    atomicNumbers.put("Nitrogen", 7);
+    atomicNumbers.put("Oxygen", 8);
+    atomicNumbers.put("Fluorine", 9);
+    atomicNumbers.put("Neon", 10);
+    atomicNumbers.put("Sodium", 11);
+    atomicNumbers.put("Magnesium", 12);
+    atomicNumbers.put("Aluminum", 13);
+    atomicNumbers.put("Silicon", 14);
+    atomicNumbers.put("Phosphorus", 15);
+    atomicNumbers.put("Sulfur", 16);
+    atomicNumbers.put("Chlorine", 17);
+    atomicNumbers.put("Argon", 18);
+    atomicNumbers.put("Potassium", 19);
+    atomicNumbers.put("Calcium", 20);
+    // Add more elements as needed
+
 
 
 

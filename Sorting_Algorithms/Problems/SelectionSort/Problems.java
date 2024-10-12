@@ -3,7 +3,6 @@ package Sorting_Algorithms.Problems.SelectionSort;
 public class Problems {
     private int[] numList;
     private String[] stringList;
-    private char[] charList;
     public Problems(int[] nums){
         this.numList = nums;
     }
@@ -12,9 +11,7 @@ public class Problems {
         this.stringList = strings;
     }
 
-    public Problems(char[] chars){
-        this.charList = chars;
-    }
+  
 
     public Problems(){ }
 
