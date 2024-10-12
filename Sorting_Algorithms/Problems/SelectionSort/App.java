@@ -22,6 +22,14 @@ public class App {
 
         }
         System.out.println();
-    }
+    
+
+     //Problem 3
+       
+     Problems problem3 = new Problems(unsortedArray);
+     String word =  problem3.compareWords("aza", "ana");
+     System.out.println(word);
+    
+ }
     
 }

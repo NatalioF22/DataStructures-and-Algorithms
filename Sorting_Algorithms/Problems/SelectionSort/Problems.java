@@ -49,7 +49,30 @@ public class Problems {
         return numList;
     }
 
+    public void sortStrings(){
+    //33. Sort an array of fruits alphabetically: ["orange", "apple", "banana", "grape", "kiwi"]
+    }
 
+    public String compareWords(String word1, String word2){
+        int minLength = Math.min(word1.length(), word2.length());
+        for(int i =0; i<minLength;i++){
+            char c1 = word1.charAt(i);
+            char c2 = word2.charAt(i);
+            if(c1>c2){
+                return word2;
+            }else if(c1<c2){
+                return word1;
+            }
+        }
+        if(word1.length() <= word2.length()){
+            return word1;
+        }else{
+            return word2;
+        }
+
+        
+
+    }
 
 
 
