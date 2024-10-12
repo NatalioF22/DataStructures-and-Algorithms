@@ -48,6 +48,15 @@ public class App {
         System.out.println(i.getName() + " => " + i.getGradeAVG());
      }
 
+     String[] unsortedWordsByVowelNumbers = {"rhythm", "symphony", "melody", "harmony", "tune", "abracadabra"};
+     Problems problem5 = new Problems(unsortedWordsByVowelNumbers);
+     String[] sortedWordsByVowelNumbers = problem5.sortByNumberOfVowels();
+     for(String i: sortedWordsByVowelNumbers){
+        System.out.print(i + " ");
+     }
+     System.out.println();
+
+
 
     
  }

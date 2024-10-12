@@ -100,6 +100,48 @@ public class Problems {
         return studentList;
     }
 
+    public String[] sortByNumberOfVowels(){
+        int arraySize = stringList.length;
+        for(int i=0; i< arraySize;i++){
+            int minIndex = i;
+            for(int j = i+1; j<arraySize;j++){
+                if(countVowels(stringList[minIndex], stringList[j])<0){
+                    minIndex = j;
+                }
+            }
+            String temp = stringList[minIndex];
+            stringList[minIndex] = stringList[i];
+            stringList[i] = temp;
+        }
+        return stringList;
+    }
+
+    public int countVowels(String word1, String word2){
+        char[] vowels = {'a','e','i','o','u','y'};
+        int word1Vowels = 0;
+        int word2Vowels = 0;
+        for(int i=0;i<word1.length();i++){
+            for(int j = 0; j< vowels.length;j++){
+                if(word1.charAt(i) == vowels[j]){
+                    word1Vowels+=1;
+                }
+              
+            }
+        }
+
+        for(int i=0;i<word2.length();i++){
+            for(int j = 0; j< vowels.length;j++){
+                if(word2.charAt(i) == vowels[j]){
+                    word2Vowels+=1;
+                }
+              
+            }
+        }
+        return word1Vowels-word2Vowels;
+        
+
+    }
+
 
 
 }
