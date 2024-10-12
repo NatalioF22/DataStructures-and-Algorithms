@@ -25,10 +25,13 @@ public class App {
     
 
      //Problem 3
-       
-     Problems problem3 = new Problems(unsortedArray);
-     String word =  problem3.compareWords("aza", "ana");
-     System.out.println(word);
+    String[] unsortedStrings = {"orange", "apple", "banana", "grape", "kiwi", "aaple"};
+     Problems problem3 = new Problems(unsortedStrings);
+     String[] sortedStrings =  problem3.sortStrings();
+     for(String i: sortedStrings){
+        System.out.print(i+ " ");
+     }
+     System.out.println();
     
  }
     

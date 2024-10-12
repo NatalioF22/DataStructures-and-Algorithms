@@ -49,26 +49,36 @@ public class Problems {
         return numList;
     }
 
-    public void sortStrings(){
-    //33. Sort an array of fruits alphabetically: ["orange", "apple", "banana", "grape", "kiwi"]
+    public String[] sortStrings(){
+    //3. Sort an array of fruits alphabetically: ["orange", "apple", "banana", "grape", "kiwi"]
+    int arraySize = stringList.length;
+    for(int i =0;i< arraySize;i++){
+        int minIndex = i;
+        for(int j=i+1; j<arraySize;j++){
+            if(compareWords(stringList[minIndex], stringList[j])>0){
+                System.out.println(compareWords(stringList[minIndex], stringList[j]));
+                minIndex = j;
+            }
+        }
+        String temp = stringList[minIndex];
+        stringList[minIndex] = stringList[i];
+        stringList[i] = temp;
+    }
+    return stringList;
+
+
     }
 
-    public String compareWords(String word1, String word2){
+    public int compareWords(String word1, String word2){
         int minLength = Math.min(word1.length(), word2.length());
         for(int i =0; i<minLength;i++){
             char c1 = word1.charAt(i);
             char c2 = word2.charAt(i);
-            if(c1>c2){
-                return word2;
-            }else if(c1<c2){
-                return word1;
-            }
+           if(c1!=c2){
+            return c1-c2;
+           }
         }
-        if(word1.length() <= word2.length()){
-            return word1;
-        }else{
-            return word2;
-        }
+       return 0;
 
         
 
