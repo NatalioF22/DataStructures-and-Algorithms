@@ -32,6 +32,23 @@ public class App {
         System.out.print(i+ " ");
      }
      System.out.println();
+
+     //Problem 4
+     int[] student1Grades = {99,99,100,97,98,86};
+     Student student1 = new Student("Natalio",student1Grades );
+
+     int[] student2Grades = {99,89,10,97,98,76};
+     Student student2 = new Student("Kevin",student2Grades );
+
+     Student[] studentlist = {student1, student2};
+
+     Problems problem4 = new Problems();
+     Student[] sortedStudentList = problem4.sortStudentGrades(studentlist);
+     for(Student i: sortedStudentList){
+        System.out.println(i.getName() + " => " + i.getGradeAVG());
+     }
+
+
     
  }
     

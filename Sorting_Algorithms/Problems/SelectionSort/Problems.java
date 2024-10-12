@@ -16,6 +16,8 @@ public class Problems {
         this.charList = chars;
     }
 
+    public Problems(){ }
+
     public int[] sortIntArray(){
         int arraySize = numList.length;
         for(int i = 0;i<arraySize-1;i++){
@@ -80,8 +82,22 @@ public class Problems {
         }
        return 0;
 
-        
+    }
 
+    public Student[] sortStudentGrades(Student[] studentList){
+        int arraySize = studentList.length;
+        for(int i = 0; i< arraySize;i++){
+            int minIndex = i;
+            for(int j=i+1; j<arraySize;j++){
+                if(studentList[minIndex].getGradeAVG()<studentList[j].getGradeAVG()){
+                    minIndex = j;
+                }
+            }
+            Student temp = studentList[minIndex];
+            studentList[minIndex] = studentList[i];
+            studentList[i] = temp;
+        }
+        return studentList;
     }
 
 
