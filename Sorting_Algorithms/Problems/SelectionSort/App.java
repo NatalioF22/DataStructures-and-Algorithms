@@ -3,62 +3,59 @@ import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) {
+        // Problem 1
         int[] unsortedNums = {1,6,4,3,2,7,9,8,5,4};
-        Problems problem1 = new Problems(unsortedNums);
-        int[] sortedArray = problem1.sortIntArray();
-        for(int i: sortedArray){
+        int[] sortedArray = Problems.sortIntArray(unsortedNums);
+        System.out.print("Sorted Array: ");
+        for(int i : sortedArray){
             System.out.print(i + " ");
-
         }
         System.out.println();
 
-
-
-        //Problem 2
-       
-        Problems problem2 = new Problems(sortedArray);
-        int[] unsortedArray = problem2.unsortIntArray();
-        for(int i: unsortedArray){
+        // Problem 2
+        int[] unsortedArray = Problems.unsortIntArray(unsortedNums);
+        System.out.print("Unsorted Array: ");
+        for(int i : unsortedArray){
             System.out.print(i + " ");
-
         }
         System.out.println();
-    
 
-     //Problem 3
-    String[] unsortedStrings = {"orange", "apple", "banana", "grape", "kiwi", "aaple"};
-     Problems problem3 = new Problems(unsortedStrings);
-     String[] sortedStrings =  problem3.sortStrings();
-     for(String i: sortedStrings){
-        System.out.print(i+ " ");
-     }
-     System.out.println();
+        // Problem 3
+        String[] unsortedStrings = {"orange", "apple", "banana", "grape", "kiwi", "aaple"};
+        String[] sortedStrings = Problems.sortStrings(unsortedStrings);
+        System.out.print("Sorted Strings: ");
+        for(String s : sortedStrings){
+            System.out.print(s + " ");
+        }
+        System.out.println();
 
-     //Problem 4
-     int[] student1Grades = {99,99,100,97,98,86};
-     Student student1 = new Student("Natalio",student1Grades );
+        // Problem 4
+        int[] student1Grades = {99,99,100,97,98,86};
+        Student student1 = new Student("Natalio", student1Grades);
 
-     int[] student2Grades = {99,89,10,97,98,76};
-     Student student2 = new Student("Kevin",student2Grades );
+        int[] student2Grades = {99,89,10,97,98,76};
+        Student student2 = new Student("Kevin", student2Grades);
 
-     Student[] studentlist = {student1, student2};
+        Student[] studentList = {student1, student2};
+        Student[] sortedStudentList = Problems.sortStudentGrades(studentList);
+        System.out.println("Students Sorted by Average Grade:");
+        for(Student s : sortedStudentList){
+            System.out.println(s.getName() + " => " + s.getGradeAVG());
+        }
 
-     Problems problem4 = new Problems();
-     Student[] sortedStudentList = problem4.sortStudentGrades(studentlist);
-     for(Student i: sortedStudentList){
-        System.out.println(i.getName() + " => " + i.getGradeAVG());
-     }
+        // Problem 5
+        String[] unsortedWordsByVowelNumbers = {"rhythm", "symphony", "melody", "harmony", "tune", "abracadabra"};
+        String[] sortedWordsByVowelNumbers = Problems.sortByNumberOfVowels(unsortedWordsByVowelNumbers);
+        System.out.print("Words Sorted by Number of Vowels: ");
+        for(String s : sortedWordsByVowelNumbers){
+            System.out.print(s + " ");
+        }
+        System.out.println();
 
-     String[] unsortedWordsByVowelNumbers = {"rhythm", "symphony", "melody", "harmony", "tune", "abracadabra"};
-     Problems problem5 = new Problems(unsortedWordsByVowelNumbers);
-     String[] sortedWordsByVowelNumbers = problem5.sortByNumberOfVowels();
-     for(String i: sortedWordsByVowelNumbers){
-        System.out.print(i + " ");
-     }
-     System.out.println();
+        // Problem 7 (Incomplete in original code)
+        // You can implement sorting of atoms here if needed
 
-     //This is for problem 7
-    
+
 
     HashMap<String, Integer> shapeSides = new HashMap<>();
     shapeSides.put("triangle", 3);
@@ -98,10 +95,10 @@ public class App {
     atomicNumbers.put("Calcium", 20);
     // Add more elements as needed
 
-
-
-
-    
- }
-    
+    }
 }
+
+    
+
+
+

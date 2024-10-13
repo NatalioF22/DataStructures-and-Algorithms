@@ -1,144 +1,123 @@
 package Sorting_Algorithms.Problems.SelectionSort;
 
+import java.util.HashMap;
+
 public class Problems {
-    private int[] numList;
-    private String[] stringList;
-    public Problems(int[] nums){
-        this.numList = nums;
-    }
 
-    public Problems(String[] strings){
-        this.stringList = strings;
-    }
-
-  
-
-    public Problems(){ }
-
-    public int[] sortIntArray(){
-        int arraySize = numList.length;
-        for(int i = 0;i<arraySize-1;i++){
+    public static int[] sortIntArray(int[] numList){
+        int[] sortedList = numList.clone();
+        int arraySize = sortedList.length;
+        for(int i = 0; i < arraySize - 1; i++){
             int minIndex = i;
-            for(int j = i+1; j<arraySize;j++){
-                if(numList[minIndex]> numList[j]){
+            for(int j = i + 1; j < arraySize; j++){
+                if(sortedList[minIndex] > sortedList[j]){
                     minIndex = j;
                 }
             }
-            int temp = numList[minIndex];
-            numList[minIndex] = numList[i];
-            numList[i] = temp;
+            int temp = sortedList[minIndex];
+            sortedList[minIndex] = sortedList[i];
+            sortedList[i] = temp;
         }
-        return numList;
+        return sortedList;
     }
 
-    public int[] unsortIntArray(){
-        int arraySize = numList.length;
-        for(int i = 0;i < arraySize-1;i++){
+    public static int[] unsortIntArray(int[] numList){
+        int[] unsortedList = numList.clone();
+        int arraySize = unsortedList.length;
+        for(int i = 0; i < arraySize - 1; i++){
+            int maxIndex = i;
+            for(int j = i + 1; j < arraySize; j++){
+                if(unsortedList[maxIndex] < unsortedList[j]){
+                    maxIndex = j;
+                }
+            }
+            int temp = unsortedList[maxIndex];
+            unsortedList[maxIndex] = unsortedList[i];
+            unsortedList[i] = temp;
+        }
+        return unsortedList;
+    }
+
+    public static String[] sortStrings(String[] stringList){
+        String[] sortedList = stringList.clone();
+        int arraySize = sortedList.length;
+        for(int i = 0; i < arraySize - 1; i++){
             int minIndex = i;
-            for(int j=i+1; j<arraySize;j++){
-                if(numList[minIndex] < numList[j]){
+            for(int j = i + 1; j < arraySize; j++){
+                if(compareWords(sortedList[minIndex], sortedList[j]) > 0){
                     minIndex = j;
                 }
-                
             }
-            int temp = numList[minIndex];
-            numList[minIndex] = numList[i];
-            numList[i] = temp;
+            String temp = sortedList[minIndex];
+            sortedList[minIndex] = sortedList[i];
+            sortedList[i] = temp;
         }
-        return numList;
+        return sortedList;
     }
 
-    public String[] sortStrings(){
-    //3. Sort an array of fruits alphabetically: ["orange", "apple", "banana", "grape", "kiwi"]
-    int arraySize = stringList.length;
-    for(int i =0;i< arraySize;i++){
-        int minIndex = i;
-        for(int j=i+1; j<arraySize;j++){
-            if(compareWords(stringList[minIndex], stringList[j])>0){
-                System.out.println(compareWords(stringList[minIndex], stringList[j]));
-                minIndex = j;
-            }
-        }
-        String temp = stringList[minIndex];
-        stringList[minIndex] = stringList[i];
-        stringList[i] = temp;
-    }
-    return stringList;
-
-
-    }
-
-    public int compareWords(String word1, String word2){
+    public static int compareWords(String word1, String word2){
         int minLength = Math.min(word1.length(), word2.length());
-        for(int i =0; i<minLength;i++){
+        for(int i = 0; i < minLength; i++){
             char c1 = word1.charAt(i);
             char c2 = word2.charAt(i);
-           if(c1!=c2){
-            return c1-c2;
-           }
-        }
-       return 0;
-
-    }
-
-    public Student[] sortStudentGrades(Student[] studentList){
-        int arraySize = studentList.length;
-        for(int i = 0; i< arraySize;i++){
-            int minIndex = i;
-            for(int j=i+1; j<arraySize;j++){
-                if(studentList[minIndex].getGradeAVG()<studentList[j].getGradeAVG()){
-                    minIndex = j;
-                }
-            }
-            Student temp = studentList[minIndex];
-            studentList[minIndex] = studentList[i];
-            studentList[i] = temp;
-        }
-        return studentList;
-    }
-
-    public String[] sortByNumberOfVowels(){
-        int arraySize = stringList.length;
-        for(int i=0; i< arraySize;i++){
-            int minIndex = i;
-            for(int j = i+1; j<arraySize;j++){
-                if(countVowels(stringList[minIndex], stringList[j])<0){
-                    minIndex = j;
-                }
-            }
-            String temp = stringList[minIndex];
-            stringList[minIndex] = stringList[i];
-            stringList[i] = temp;
-        }
-        return stringList;
-    }
-
-    public int countVowels(String word1, String word2){
-        char[] vowels = {'a','e','i','o','u','y'};
-        int word1Vowels = 0;
-        int word2Vowels = 0;
-        for(int i=0;i<word1.length();i++){
-            for(int j = 0; j< vowels.length;j++){
-                if(word1.charAt(i) == vowels[j]){
-                    word1Vowels+=1;
-                }
-              
+            if(c1 != c2){
+                return c1 - c2;
             }
         }
-
-        for(int i=0;i<word2.length();i++){
-            for(int j = 0; j< vowels.length;j++){
-                if(word2.charAt(i) == vowels[j]){
-                    word2Vowels+=1;
-                }
-              
-            }
-        }
-        return word1Vowels-word2Vowels;
-        
-
+        return word1.length() - word2.length();
     }
 
+    public static Student[] sortStudentGrades(Student[] studentList){
+        Student[] sortedList = studentList.clone();
+        int arraySize = sortedList.length;
+        for(int i = 0; i < arraySize - 1; i++){
+            int maxIndex = i;
+            for(int j = i + 1; j < arraySize; j++){
+                if(sortedList[maxIndex].getGradeAVG() < sortedList[j].getGradeAVG()){
+                    maxIndex = j;
+                }
+            }
+            Student temp = sortedList[maxIndex];
+            sortedList[maxIndex] = sortedList[i];
+            sortedList[i] = temp;
+        }
+        return sortedList;
+    }
 
+    public static String[] sortByNumberOfVowels(String[] stringList){
+        String[] sortedList = stringList.clone();
+        int arraySize = sortedList.length;
+        for(int i = 0; i < arraySize - 1; i++){
+            int maxIndex = i;
+            for(int j = i + 1; j < arraySize; j++){
+                if(countVowels(sortedList[maxIndex]) < countVowels(sortedList[j])){
+                    maxIndex = j;
+                }
+            }
+            String temp = sortedList[maxIndex];
+            sortedList[maxIndex] = sortedList[i];
+            sortedList[i] = temp;
+        }
+        return sortedList;
+    }
 
+    public static int countVowels(String word){
+        int count = 0;
+        String vowels = "aeiouyAEIOUY";
+        for(int i = 0; i < word.length(); i++){
+            if(vowels.indexOf(word.charAt(i)) != -1){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // Placeholder methods for sortAtoms and compareAtoms
+    public static void sortAtoms(HashMap<String, Integer>[] atomList){
+        // Implement sorting logic if needed
+    }
+
+    public static void compareAtoms(HashMap<String, Integer> atom1, HashMap<String, Integer> atom2){
+        // Implement comparison logic if needed
+    }
 }
