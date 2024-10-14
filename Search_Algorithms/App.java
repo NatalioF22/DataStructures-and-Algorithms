@@ -8,8 +8,8 @@ public class App{
             nums[i] = i;
         }
         int target = 899;
-        BinarySearchAlgorithm bsa = new BinarySearchAlgorithm(nums,target);
-        System.out.println(bsa.search());
+        BinarySearchAlgorithm bsa = new BinarySearchAlgorithm();
+        System.out.println(bsa.search(nums,target));
         bsa.analyzeTime();
 
         LinearSearchAlgorithm lsa = new LinearSearchAlgorithm(nums, target);

@@ -1,14 +1,10 @@
 package Search_Algorithms;
 
 public class BinarySearchAlgorithm {
-    private int[] nums;
-    private int target;
-    public BinarySearchAlgorithm(int[] nums, int target){
-        this.target = target;
-        this.nums = nums;
-    }
+    public BinarySearchAlgorithm(){}
+       
 
-    public int search(){
+    public int search(int[] nums, int target){
 
         int start = 0;
         int end = nums.length - 1;
@@ -27,9 +23,10 @@ public class BinarySearchAlgorithm {
     }
     public void analyzeTime(){
         long start_time = System.nanoTime();
-        this.search();
         long end_time = System.nanoTime();
         System.out.println("The Binary Search Alogrithm took: " + (end_time-start_time) + " nanoseconds");
 
     }
+
+    
 }

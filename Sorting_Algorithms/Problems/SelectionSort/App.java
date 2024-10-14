@@ -95,6 +95,8 @@ public class App {
     atomicNumbers.put("Calcium", 20);
     // Add more elements as needed
 
+    Problems.compareAtoms(atomicNumbers);
+
     }
 }
 

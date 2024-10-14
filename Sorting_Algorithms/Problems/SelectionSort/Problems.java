@@ -117,7 +117,10 @@ public class Problems {
         // Implement sorting logic if needed
     }
 
-    public static void compareAtoms(HashMap<String, Integer> atom1, HashMap<String, Integer> atom2){
-        // Implement comparison logic if needed
+    public static void compareAtoms(HashMap<String, Integer> atoms){
+       for(String i: atoms.keySet()){
+        System.out.println(i+ " = "+atoms.get(i));
+       }
+       
     }
 }
