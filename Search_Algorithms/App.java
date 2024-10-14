@@ -1,5 +1,6 @@
 package Search_Algorithms;
 
+import java.util.LinkedList;
 
 public class App{
     public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class App{
         LinearSearchAlgorithm lsa = new LinearSearchAlgorithm(nums, target);
         System.out.println(lsa.search());
         lsa.analyzeTime();
+
 
     }
 }
