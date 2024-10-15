@@ -31,3 +31,4 @@ for folder in "${folders[@]}"; do
 done
 
 echo "Repository structure has been set up successfully."
+
