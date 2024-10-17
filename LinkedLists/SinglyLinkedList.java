@@ -1,84 +1,83 @@
 package LinkedLists;
 
-public class SinglyLinkedList{
+public class SinglyLinkedList {
     Node head;
     Node tail;
     int size;
+
     public void printData(){
         if(size==0){
-            System.out.println("There is nothing in the List!");
-        }else{
-            Node currentNode = head;
-            while(currentNode!=null){
-                System.out.print(currentNode.data + " => ");
-                currentNode = currentNode.next;
+            System.out.println("The list is empty!");
+        }
+        else{
+            Node current = head;
+            while(current!=null){
+                System.out.print(" => " + current.getData());
+                current = current.next;
             }
-            System.out.println(" null");
+            System.out.println(" => null");
         }
     }
-    public void addFirst(int data){
+    public void apend(int data){
         Node newNode = new Node(data);
         if(size==0){
-       
-        head = newNode;
-        tail = newNode;
-        size++;
+            head = tail = newNode;
+            size++;
         }else{
+            Node currentNode = head;
+            while(currentNode.next!=null){
+                currentNode = currentNode.next;
+            }
             newNode.next = head;
             head = newNode;
             size++;
         }
-      
     }
-    
     public void addLast(int data){
-        Node newNode = new Node(data);
+        Node newNode =new Node(data);
         if(size==0){
-            head = newNode;
-            tail = newNode;
+            head = tail = newNode;
             size++;
         }else{
-        newNode.next = tail;
-        tail = newNode;
-        size++;
-        }
-    }
-
-    
-    public void removeLast(){
-        if(size==0){
-            System.out.println("There is Nothing in the list");
-        }else if(size==1){
-            head = null;
-            tail = null;
-            size--;
-        }else{
             Node currentNode = head;
-            while(currentNode.next != tail){
+            while(currentNode.next!=null){
                 currentNode = currentNode.next;
             }
-            currentNode.next = null;
-            tail = currentNode;
-            size--;
+            currentNode.next = newNode;
+            newNode= tail;
+            size++;
         }
     }
 
-    public void removeFirst(){
+    public void pop(){
         if(size==0){
-            System.out.println("There is Nothing in the list");
-        }else {
+            System.out.println("Nothing to remove here");
+            return;
+        }else if(size==1){
+            head = tail = null;
+        }
+        else{
             head = head.next;
             size--;
         }
     }
 
-    public void reverseList(){
-        if(size<=1){return;}
-        else{
+    public void removeLast(){
+        if(size==0){
+            System.out.println("Nothing to remove here");
+            return;
+        }else if(size==1){
+            head = tail = null;
+            size--;
+        }else{
+            Node currentNode = head;
+            while(currentNode != tail){
+                currentNode = currentNode.next;
+            }
+            currentNode.next = null;
+            tail = currentNode;
+            size--;
 
         }
     }
-
-
-
 }
