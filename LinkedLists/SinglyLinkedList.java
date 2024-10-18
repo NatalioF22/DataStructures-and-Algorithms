@@ -8,76 +8,49 @@ public class SinglyLinkedList {
     public void printData(){
         if(size==0){
             System.out.println("The list is empty!");
-        }
-        else{
-            Node current = head;
-            while(current!=null){
-                System.out.print(" => " + current.getData());
-                current = current.next;
+        }else{
+            Node currentNode = head;
+            while(currentNode!=null){
+                System.out.print("=> " + currentNode.getData());
+                currentNode = currentNode.next;
             }
             System.out.println(" => null");
         }
     }
-    public void apend(int data){
+    public void addLast (int data){
         Node newNode = new Node(data);
         if(size==0){
-            head = tail = newNode;
-            size++;
-        }else{
-            Node currentNode = head;
-            while(currentNode.next!=null){
-                currentNode = currentNode.next;
-            }
-            newNode.next = head;
-            head = newNode;
-            size++;
+           addIfSizeIsOne(newNode);
         }
-    }
-    public void addLast(int data){
-        Node newNode =new Node(data);
-        if(size==0){
-            head = tail = newNode;
-            size++;
-        }else{
+        else
+        {
             Node currentNode = head;
             while(currentNode.next!=null){
                 currentNode = currentNode.next;
             }
             currentNode.next = newNode;
-            newNode= tail;
+            tail = newNode;
             size++;
         }
     }
 
-    public void pop(){
+    public void addFirst(int data){
+        Node newNode = new Node(data);
         if(size==0){
-            System.out.println("Nothing to remove here");
-            return;
-        }else if(size==1){
-            head = tail = null;
+            addIfSizeIsOne(newNode);
         }
-        else{
-            head = head.next;
-            size--;
+        else
+        {
+            newNode.next = head;
+            head = newNode;
+            size++;
         }
     }
 
-    public void removeLast(){
-        if(size==0){
-            System.out.println("Nothing to remove here");
-            return;
-        }else if(size==1){
-            head = tail = null;
-            size--;
-        }else{
-            Node currentNode = head;
-            while(currentNode != tail){
-                currentNode = currentNode.next;
-            }
-            currentNode.next = null;
-            tail = currentNode;
-            size--;
 
-        }
+    public void addIfSizeIsOne(Node newNode){
+        head = tail = newNode;
+        size++;
     }
+
 }
