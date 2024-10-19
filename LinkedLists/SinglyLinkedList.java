@@ -52,5 +52,30 @@ public class SinglyLinkedList {
         head = tail = newNode;
         size++;
     }
+    public void removeIfSizeIsOne(){
+        head = tail = null;
+        size--;
+    }
+    public void pop(){
+        if(size==1){
+            removeIfSizeIsOne();
+        }else{
+            head = head.next;
+            size--;
+        }
+    }
+    public void removelast(){
+        if(size==1){
+            removeIfSizeIsOne();
+        }else{
+            Node currentNode = head;
+            while(currentNode.next!=tail){
+                currentNode = currentNode.next;
+            }
+            currentNode.next = null;
+            tail = currentNode;
+            size--;
+        }
+    }
 
 }

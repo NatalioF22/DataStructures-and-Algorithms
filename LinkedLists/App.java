@@ -9,5 +9,9 @@ public class App {
        linkedList.addFirst(10);
        linkedList.addLast(40);
        linkedList.printData();
+       linkedList.pop();
+       linkedList.printData();
+       linkedList.removelast();
+       linkedList.printData();
     }
 }
