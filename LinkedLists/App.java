@@ -4,14 +4,20 @@ public class App {
     public static void main(String[] args) {
        SinglyLinkedList linkedList = new SinglyLinkedList();
        linkedList.printData();
-       linkedList.addLast(20);
-       linkedList.addFirst(0);
-       linkedList.addFirst(10);
-       linkedList.addLast(40);
+       linkedList.append(10);
+       linkedList.append(20);
        linkedList.printData();
-       linkedList.pop();
+       linkedList.addFirst(90);
+       linkedList.addFirst(80);
        linkedList.printData();
-       linkedList.removelast();
+       linkedList.removeFirst();
+       linkedList.printData();
+       linkedList.removeLast();
+       linkedList.printData();
+       linkedList.checkNode(10);
+       linkedList.addFirst(99);
+       linkedList.addFirst(100);
+       linkedList.deleteNode(10);
        linkedList.printData();
     }
 }
