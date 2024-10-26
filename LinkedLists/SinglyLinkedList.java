@@ -123,9 +123,12 @@ public class SinglyLinkedList{
         if(index>size){
             System.out.println("The list has less elements than the index");
         }
-        if(size==0){
-            head = tail= newNode;
+        else if(index == 0){
+            newNode.next = head;
+            head = newNode;
+            size++;
         }
+       
         else if(size==index){
             tail = newNode;
             size++;
