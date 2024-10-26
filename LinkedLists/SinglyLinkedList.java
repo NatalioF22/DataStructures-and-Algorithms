@@ -117,6 +117,31 @@ public class SinglyLinkedList{
             currentNode = currentNode.next;
         }
     }
+
+    public void insertNode(int index, int data){
+        Node newNode = new Node(data);
+        if(index>size){
+            System.out.println("The list has less elements than the index");
+        }
+        if(size==0){
+            head = tail= newNode;
+        }
+        else if(size==index){
+            tail = newNode;
+            size++;
+        }
+        else{
+            Node currentNode = head;
+            for(int i=0; i< index-1;i++)
+            {
+                currentNode = currentNode.next;
+            }
+            newNode.next = currentNode.next;
+            currentNode.next = newNode;
+            size++;
+        }
+    }
+
     
 
 

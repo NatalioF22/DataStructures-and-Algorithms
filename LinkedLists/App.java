@@ -19,5 +19,8 @@ public class App {
        linkedList.addFirst(100);
        linkedList.deleteNode(10);
        linkedList.printData();
+       linkedList.insertNode(1, 22);
+       linkedList.printData();
     }
+
 }
