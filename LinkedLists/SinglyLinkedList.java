@@ -1,151 +1,146 @@
 package LinkedLists;
 
 public class SinglyLinkedList{
-    Node head;
-    Node tail;
+    Node tail,head;
     int size;
 
-    public void printData(){
+    public void getSize()
+    {
+        System.out.println(size);
+    }
+
+    public void printData()
+    {
         if(size==0){
-            System.out.println("There is Nothing in the list!");
+            System.out.println("Empty List!");
         }
         else
         {
             Node currentNode = head;
-            while (currentNode!=null){
-                System.out.print(currentNode.getData()+ " => ");
+            while(currentNode!=null){
+                System.out.print(currentNode.getData() + " => ");
                 currentNode = currentNode.next;
             }
-            System.out.println("null");
-
+            System.out.println(" null");
+        
         }
     }
 
-    public void append(int data){
+    public void addFirst(int data)
+    {
         Node newNode = new Node(data);
-        if(size==0){
+        if(size==0)
+        {
             head = tail = newNode;
             size++;
         }
-        else{
-            Node currentNode = head;
-            while(currentNode.next != null){
-                currentNode = currentNode.next;
-            }
-            currentNode.next = newNode;
-            tail = newNode;
-            size++;
-        }
-    }
-    public void addFirst(int data){
-        Node newNode = new Node(data);
-        if(size==0){
-            head = tail = newNode;
-            size++;
-        }
-        else{
+        else
+        {
             newNode.next = head;
             head = newNode;
             size++;
         }
     }
 
-    public void removeFirst(){
+    public void addLast(int data)
+    {
+        Node newNode = new Node(data);
         if(size==0){
-            return;
-        }else if(size==1){
-            head = tail = null;
-        }else{
-            head = head.next;
+            head = tail = newNode;
+            size++;
         }
-    }
-    public void removeLast(){
-        if(size==0){
-            return;
-        }else if(size==1){
-            head = tail = null;
-        }else{
-            Node currentNode =  head;
-            while(currentNode.next!=tail){
+        else
+        {
+            Node currentNode = head;
+            while(currentNode.next!= null){
                 currentNode = currentNode.next;
             }
-            currentNode.next = null;
-            tail = currentNode;
-            size--;
+            currentNode.next = newNode;
+            tail = newNode;
+            newNode.next = null;
+            size++;
         }
     }
 
-    public void checkNode(int data){
+    public void pop()
+    {
+        if(size==0) {
+            return;
+        } 
+        else
+        {
+            head = head.next;
+            size --;
+        }
+    }
+
+
+    public void removeLast()
+    {
+        if (size==0)
+         {return;}
+        else if(size==1){
+            head = tail = null;
+        }
+        else
+        {
+            Node currentNode = head;
+            while(currentNode.next != tail)
+            {
+                currentNode = currentNode.next;
+            }
+            tail = currentNode;
+            currentNode.next = null;
+            size --;
+        }
+    }
+
+    public void checkData(int data)
+    {
         int index = 0;
         if(size==0){
             return;
         }
-        else{
+        else
+        {
             Node currentNode = head;
+            while(currentNode != null){
 
-            while(currentNode !=null){
-                if(currentNode.getData()==data){
-                    System.out.println("Node "+ currentNode.getData() + " found at index "+ index);
+                if(currentNode.getData() == data){
+                    System.out.println(index);
+                    
                 }
-                currentNode = currentNode.next;
                 index++;
+                currentNode = currentNode.next;
             }
-        }
-
-    }
-
-    public void deleteNode(int data) {
-        if (size == 0) {
-            return;
-        }
-    
-        Node currentNode = head;
-        Node previousNode = null;
-    
-        while (currentNode != null) {
-            if (currentNode.getData() == data) {
-                // If the node to be deleted is the head node
-                if (previousNode == null) {
-                    head = currentNode.next; // Move head
-                } else {
-                    previousNode.next = currentNode.next; // Bypass the current node
-                }
-                size--;
-                break; // Remove only the first occurrence and break the loop
-            }
-            previousNode = currentNode;
-            currentNode = currentNode.next;
         }
     }
 
-    public void insertNode(int index, int data){
+    public void insertNode(int index, int data) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index: " + index);
+        }
+    
         Node newNode = new Node(data);
-        if(index>size){
-            System.out.println("The list has less elements than the index");
-        }
-        else if(index == 0){
+    
+        if (index == 0) { // Insertion at the head
             newNode.next = head;
             head = newNode;
-            size++;
-        }
-       
-        else if(size==index){
+            if (size == 0) { // List was empty, update tail
+                tail = newNode;
+            }
+        } else if (index == size) { // Insertion at the tail
+            tail.next = newNode;
             tail = newNode;
-            size++;
-        }
-        else{
+        } else { // Insertion in the middle
             Node currentNode = head;
-            for(int i=0; i< index-1;i++)
-            {
+            for (int i = 0; i < index - 1; i++) {
                 currentNode = currentNode.next;
             }
             newNode.next = currentNode.next;
             currentNode.next = newNode;
-            size++;
         }
+        size++;
     }
-
     
-
-
 }
